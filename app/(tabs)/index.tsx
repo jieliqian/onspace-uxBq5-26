@@ -2,71 +2,150 @@ import React from 'react';
 import {
   View,
   Text,
+  ScrollView,
   StyleSheet,
+  Image,
   TouchableOpacity,
   Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 const { width } = Dimensions.get('window');
 
 export default function HomePage() {
-  const [count, setCount] = React.useState(0);
+  const router = useRouter();
+
+  const quickActions = [
+    {
+      id: 1,
+      title: 'Fun Activities',
+      icon: 'celebration',
+      color: '#FF6B6B',
+      route: '/activities',
+    },
+    {
+      id: 2,
+      title: 'Photo Gallery',
+      icon: 'photo-camera',
+      color: '#4ECDC4',
+      route: '/gallery',
+    },
+    {
+      id: 3,
+      title: 'Play Games',
+      icon: 'games',
+      color: '#45B7D1',
+      route: '/games',
+    },
+    {
+      id: 4,
+      title: 'Stories',
+      icon: 'menu-book',
+      color: '#96CEB4',
+      route: '/activities',
+    },
+  ];
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient
-        colors={['#4A90E2', '#50C9C3']}
-        style={styles.header}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}>
-        <MaterialIcons name="waving-hand" size={48} color="white" />
-        <Text style={styles.headerTitle}>Hello, World!</Text>
-        <Text style={styles.headerSubtitle}>Welcome to our simple website</Text>
-      </LinearGradient>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {/* Header Section */}
+        <LinearGradient
+          colors={['#FF6B6B', '#4ECDC4', '#45B7D1']}
+          style={styles.header}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}>
+          <View style={styles.headerContent}>
+            <Text style={styles.headerTitle}>Happy Children's Day!</Text>
+            <Text style={styles.headerSubtitle}>
+              Let's celebrate the joy and wonder of childhood! 🎉
+            </Text>
+            <Image
+              source={{
+                uri: 'https://images.unsplash.com/photo-1544776527-59c5d278b4a4?w=800&q=80',
+              }}
+              style={styles.headerImage}
+              accessibilityLabel="Happy children celebrating Children's Day"
+            />
+          </View>
+        </LinearGradient>
 
-      <View style={styles.content}>
-        <View style={styles.welcomeCard}>
-          <Text style={styles.welcomeTitle}>Hello There! 👋</Text>
+        {/* Welcome Message */}
+        <View style={styles.welcomeSection}>
+          <Text style={styles.welcomeTitle}>Welcome to Our Special Day!</Text>
           <Text style={styles.welcomeText}>
-            This is a simple and clean website built with React Native. 
-            Tap the button below to see some interaction!
+            Children's Day is a time to celebrate the innocence, creativity, and boundless energy of children everywhere. Join us for a day filled with fun activities, games, and memorable moments!
           </Text>
         </View>
 
-        <View style={styles.counterSection}>
-          <Text style={styles.counterLabel}>Button clicked:</Text>
-          <Text style={styles.counterValue}>{count} times</Text>
+        {/* Quick Actions */}
+        <View style={styles.quickActionsSection}>
+          <Text style={styles.sectionTitle}>Explore & Have Fun</Text>
+          <View style={styles.quickActionsGrid}>
+            {quickActions.map((action) => (
+              <TouchableOpacity
+                key={action.id}
+                style={[styles.quickActionCard, { backgroundColor: action.color }]}
+                onPress={() => router.push(action.route)}
+                activeOpacity={0.8}>
+                <MaterialIcons name={action.icon as any} size={32} color="white" />
+                <Text style={styles.quickActionText}>{action.title}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </View>
+
+        {/* Featured Content */}
+        <View style={styles.featuredSection}>
+          <Text style={styles.sectionTitle}>Today's Highlights</Text>
           
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => setCount(count + 1)}
-            activeOpacity={0.8}>
-            <MaterialIcons name="touch-app" size={20} color="white" />
-            <Text style={styles.buttonText}>Click Me!</Text>
-          </TouchableOpacity>
+          <View style={styles.featuredCard}>
+            <Image
+              source={{
+                uri: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80',
+              }}
+              style={styles.featuredImage}
+              accessibilityLabel="Children playing outdoor games and activities"
+            />
+            <View style={styles.featuredContent}>
+              <Text style={styles.featuredTitle}>Special Activities Today</Text>
+              <Text style={styles.featuredDescription}>
+                Join us for exciting outdoor games, creative workshops, and special performances designed just for kids!
+              </Text>
+            </View>
+          </View>
 
-          {count > 0 && (
-            <TouchableOpacity
-              style={styles.resetButton}
-              onPress={() => setCount(0)}
-              activeOpacity={0.8}>
-              <MaterialIcons name="refresh" size={16} color="#007AFF" />
-              <Text style={styles.resetButtonText}>Reset</Text>
-            </TouchableOpacity>
-          )}
+          <View style={styles.featuredCard}>
+            <Image
+              source={{
+                uri: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&q=80',
+              }}
+              style={styles.featuredImage}
+              accessibilityLabel="Children doing arts and crafts activities"
+            />
+            <View style={styles.featuredContent}>
+              <Text style={styles.featuredTitle}>Arts & Crafts Corner</Text>
+              <Text style={styles.featuredDescription}>
+                Unleash your creativity with painting, drawing, and craft-making activities. Every child is an artist!
+              </Text>
+            </View>
+          </View>
         </View>
 
-        <View style={styles.infoSection}>
-          <Text style={styles.infoTitle}>Simple & Clean</Text>
-          <Text style={styles.infoText}>
-            Sometimes the best websites are the simplest ones. 
-            This demonstrates clean design with minimal but effective functionality.
-          </Text>
+        {/* Fun Facts */}
+        <View style={styles.funFactsSection}>
+          <Text style={styles.sectionTitle}>Did You Know?</Text>
+          <View style={styles.funFactCard}>
+            <MaterialIcons name="lightbulb" size={24} color="#FFA726" />
+            <Text style={styles.funFactText}>
+              Children's Day is celebrated on different dates around the world, but the spirit of joy and celebration remains the same everywhere!
+            </Text>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -78,32 +157,37 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 20,
-    paddingVertical: 40,
+    paddingVertical: 30,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+  },
+  headerContent: {
     alignItems: 'center',
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
   },
   headerTitle: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: 'bold',
     color: 'white',
-    marginTop: 12,
+    textAlign: 'center',
+    marginBottom: 8,
   },
   headerSubtitle: {
     fontSize: 16,
     color: 'white',
-    marginTop: 8,
+    textAlign: 'center',
+    marginBottom: 20,
     opacity: 0.9,
   },
-  content: {
-    flex: 1,
-    padding: 20,
+  headerImage: {
+    width: width * 0.7,
+    height: 150,
+    borderRadius: 15,
   },
-  welcomeCard: {
+  welcomeSection: {
+    padding: 20,
     backgroundColor: 'white',
-    padding: 24,
-    borderRadius: 16,
-    marginBottom: 24,
+    margin: 20,
+    borderRadius: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -111,82 +195,100 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   welcomeTitle: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
-    color: '#1D1D1F',
-    marginBottom: 12,
+    color: '#2C3E50',
+    marginBottom: 10,
   },
   welcomeText: {
     fontSize: 16,
-    color: '#6D6D80',
+    color: '#7F8C8D',
     lineHeight: 24,
   },
-  counterSection: {
-    backgroundColor: 'white',
-    padding: 24,
-    borderRadius: 16,
+  quickActionsSection: {
+    padding: 20,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#2C3E50',
+    marginBottom: 15,
+  },
+  quickActionsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  quickActionCard: {
+    width: (width - 60) / 2,
+    height: 100,
+    borderRadius: 15,
+    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 24,
+    marginBottom: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
   },
-  counterLabel: {
-    fontSize: 18,
-    color: '#1D1D1F',
-    marginBottom: 8,
-  },
-  counterValue: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#007AFF',
-    marginBottom: 20,
-  },
-  button: {
-    backgroundColor: '#007AFF',
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-    borderRadius: 25,
-    marginBottom: 12,
-  },
-  buttonText: {
+  quickActionText: {
     color: 'white',
-    fontSize: 16,
-    fontWeight: '600',
-    marginLeft: 8,
-  },
-  resetButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-    backgroundColor: '#F2F2F7',
-  },
-  resetButtonText: {
-    color: '#007AFF',
     fontSize: 14,
     fontWeight: '600',
-    marginLeft: 4,
+    marginTop: 8,
+    textAlign: 'center',
   },
-  infoSection: {
-    backgroundColor: '#F2F2F7',
-    padding: 24,
-    borderRadius: 16,
+  featuredSection: {
+    padding: 20,
   },
-  infoTitle: {
-    fontSize: 20,
+  featuredCard: {
+    backgroundColor: 'white',
+    borderRadius: 15,
+    marginBottom: 15,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    overflow: 'hidden',
+  },
+  featuredImage: {
+    width: '100%',
+    height: 150,
+  },
+  featuredContent: {
+    padding: 15,
+  },
+  featuredTitle: {
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#1D1D1F',
-    marginBottom: 12,
+    color: '#2C3E50',
+    marginBottom: 8,
   },
-  infoText: {
-    fontSize: 16,
-    color: '#6D6D80',
-    lineHeight: 24,
+  featuredDescription: {
+    fontSize: 14,
+    color: '#7F8C8D',
+    lineHeight: 20,
+  },
+  funFactsSection: {
+    padding: 20,
+    paddingBottom: 40,
+  },
+  funFactCard: {
+    backgroundColor: '#FFF8E1',
+    padding: 15,
+    borderRadius: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderLeftWidth: 4,
+    borderLeftColor: '#FFA726',
+  },
+  funFactText: {
+    flex: 1,
+    marginLeft: 12,
+    fontSize: 14,
+    color: '#F57C00',
+    lineHeight: 20,
   },
 });

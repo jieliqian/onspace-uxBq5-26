@@ -5,12 +5,12 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#007AFF',
-        tabBarInactiveTintColor: '#8E8E93',
+        tabBarActiveTintColor: '#FF6B6B',
+        tabBarInactiveTintColor: '#95A5A6',
         tabBarStyle: {
           backgroundColor: '#FFFFFF',
           borderTopWidth: 1,
-          borderTopColor: '#E5E5EA',
+          borderTopColor: '#E8E8E8',
           paddingBottom: 5,
           height: 60,
         },
@@ -30,11 +30,31 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="about"
+        name="activities"
         options={{
-          title: 'About',
+          title: 'Activities',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="info" size={size} color={color} />
+            <MaterialIcons name="celebration" size={size} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
+        name="gallery"
+        options={{
+          title: 'Gallery',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="photo-library" size={size} color={color} />
+          ),
+          headerShown: false,
+        }}
+      />
+      <Tabs.Screen
+        name="games"
+        options={{
+          title: 'Games',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="games" size={size} color={color} />
           ),
           headerShown: false,
         }}
