@@ -1,50 +1,83 @@
-# Welcome to your Expo app 👋
+ # onspace-app
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+基于 React Native & Expo 的移动应用项目
 
-## Get started
+## 项目简介
 
-1. Install dependencies
+onspace-app 是一个基于 React Native 和 Expo 构建的移动应用项目，集成了丰富的第三方库，支持多平台（iOS、Android、Web）开发与运行。
 
-   ```bash
-   npm install
-   ```
+## 目录结构
 
-2. Start the app
+（可根据实际项目结构补充）
 
-   ```bash
-   npx expo start
-   ```
+## 快速开始
 
-In the output, you'll find options to open the app in a
+### 1. 安装依赖
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+```bash
+npm install
+# 或者
+yarn install
+```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 2. 启动项目
 
-## Get a fresh project
+- 启动开发服务器（选择平台）：
 
-When you're ready, run:
+```bash
+npm run start         # 启动 Expo 开发服务器
+npm run android       # 启动 Android 模拟器
+npm run ios           # 启动 iOS 模拟器
+npm run web           # 启动 Web 端
+```
+
+- 重置项目（清理缓存等）：
 
 ```bash
 npm run reset-project
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 3. 代码检查
 
-## Learn more
+```bash
+npm run lint
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## 主要依赖
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- React Native: 0.79.4
+- React: 19.0.0
+- Expo: ~53.0.12
+- Expo Router: ~5.1.0
+- Supabase: ^2.50.0
+- 其他常用库：  
+  - @expo/vector-icons  
+  - react-native-paper  
+  - react-native-calendars  
+  - lottie-react-native  
+  - react-native-webview  
+  - 等等
 
-## Join the community
+详细依赖请见 [package.json](./package.json)。
 
-Join our community of developers creating universal apps.
+## 开发工具
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- TypeScript: ~5.8.3
+- ESLint: ^9.25.0
+- @babel/core: ^7.25.2
+
+## 贡献指南
+
+1. Fork 本仓库
+2. 新建分支 (`git checkout -b feature/xxx`)
+3. 提交更改 (`git commit -am 'Add new feature'`)
+4. 推送分支 (`git push origin feature/xxx`)
+5. 提交 Pull Request
+
+## License
+
+本项目为私有项目（"private": true），如需合作请联系作者。
+
+---
+
+如需补充项目截图、API 文档、功能说明等内容，请在相应位置添加。
