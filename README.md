@@ -1,83 +1,80 @@
- # onspace-app
+# onspace-app
 
-基于 React Native & Expo 的移动应用项目
+A cross-platform mobile application built with React Native & Expo
 
-## 项目简介
+## Project Overview
 
-onspace-app 是一个基于 React Native 和 Expo 构建的移动应用项目，集成了丰富的第三方库，支持多平台（iOS、Android、Web）开发与运行。
+onspace-app is a mobile application project developed using React Native and Expo. It integrates a variety of popular third-party libraries and supports development and deployment on iOS, Android, and Web platforms.
 
-## 目录结构
 
-（可根据实际项目结构补充）
+## Getting Started
 
-## 快速开始
-
-### 1. 安装依赖
+### 1. Install Dependencies
 
 ```bash
 npm install
-# 或者
+# or
 yarn install
 ```
 
-### 2. 启动项目
+### 2. Start the Project
 
-- 启动开发服务器（选择平台）：
+- Start the development server (choose your platform):
 
 ```bash
-npm run start         # 启动 Expo 开发服务器
-npm run android       # 启动 Android 模拟器
-npm run ios           # 启动 iOS 模拟器
-npm run web           # 启动 Web 端
+npm run start         # Start Expo development server
+npm run android       # Launch Android emulator
+npm run ios           # Launch iOS simulator
+npm run web           # Start the web version
 ```
 
-- 重置项目（清理缓存等）：
+- Reset the project (clear cache, etc.):
 
 ```bash
 npm run reset-project
 ```
 
-### 3. 代码检查
+### 3. Lint the Code
 
 ```bash
 npm run lint
 ```
 
-## 主要依赖
+## Main Dependencies
 
 - React Native: 0.79.4
 - React: 19.0.0
 - Expo: ~53.0.12
 - Expo Router: ~5.1.0
 - Supabase: ^2.50.0
-- 其他常用库：  
+- Other commonly used libraries:  
   - @expo/vector-icons  
   - react-native-paper  
   - react-native-calendars  
   - lottie-react-native  
   - react-native-webview  
-  - 等等
+  - and more
 
-详细依赖请见 [package.json](./package.json)。
+For a full list of dependencies, see [package.json](./package.json).
 
-## 开发工具
+## Development Tools
 
 - TypeScript: ~5.8.3
 - ESLint: ^9.25.0
 - @babel/core: ^7.25.2
 
-## 贡献指南
+## Contributing
 
-1. Fork 本仓库
-2. 新建分支 (`git checkout -b feature/xxx`)
-3. 提交更改 (`git commit -am 'Add new feature'`)
-4. 推送分支 (`git push origin feature/xxx`)
-5. 提交 Pull Request
+1. Fork this repository
+2. Create a new branch (`git checkout -b main`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
 
 ## License
 
-本项目为私有项目（"private": true），如需合作请联系作者。
+This project is private ("private": true). For collaboration inquiries, please contact the author.
 
 ---
 
-如需补充项目截图、API 文档、功能说明等内容，请在相应位置添加。
+Feel free to add project screenshots, API documentation, feature descriptions, or any other information as needed.
